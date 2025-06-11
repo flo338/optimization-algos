@@ -25,13 +25,11 @@ class GeometricNeighborhood(Neighborhood):
     def get_neighbors(
         self,
         solution: BoxFillingSolution,
-        method: Literal["exhaustive", "probable_fields", "stochastic"] = "stochastic",
+        method: Literal["exhaustive", "stochastic"] = "stochastic",
     ) -> list[BoxFillingSolution]:
         match method:
             case "exhaustive":
                 return self._get_neighbors_exhaustive(solution=solution)
-            case "probable_fields":
-                return self._get_neighbors_probable_fields(solution=solution)
             case "stochastic":
                 return self._get_neighbors_stochastic(solution=solution)
             case _:
@@ -129,49 +127,6 @@ class GeometricNeighborhood(Neighborhood):
 
             moves: list[Rectangle] = generate_all_moves(
                 rectangle=target, num_boxes=num_boxes, L=self.L
-            )
-
-            valid_movings = [
-                move for move in moves if not move.coordinates.intersection(competitors)
-            ]
-
-            neighbors_list.append(
-                [
-                    BoxFillingSolution(
-                        solution=iter_rectangles[:ix]
-                        + [moved_rectangle]
-                        + iter_rectangles[ix + 1 :]
-                    )
-                    for moved_rectangle in valid_movings
-                ]
-            )
-
-        neighbors = list(chain(*neighbors_list))
-
-        return neighbors
-
-    def _get_neighbors_probable_fields(
-        self, solution: BoxFillingSolution
-    ) -> list[BoxFillingSolution]:
-        """
-        Implements an exhaustive approach, where only fields adjacent to current rectangles are considered.
-        """
-        rectangles: list[Rectangle] = solution.solution
-        blocked_fields: set[Tuple[int, int, int]] = get_blocked_fields(
-            rectangles=rectangles
-        )
-
-        neighbors_list = []
-
-        for ix in range(len(rectangles)):
-            iter_rectangles = deepcopy(rectangles)
-            target: Rectangle = iter_rectangles[ix]
-            competitors: set[Tuple[int, int, int]] = blocked_fields.difference(
-                target.coordinates
-            )
-
-            moves: list[Rectangle] = approximate_all_moves(
-                L=self.L, rectangle=target, blocked_fields=competitors
             )
 
             valid_movings = [
