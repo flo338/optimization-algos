@@ -80,7 +80,6 @@ class ProblemInstance(Protocol):
 
 
 class InstanceFactory(Protocol):
-
     @abstractmethod
     def generate_instance() -> ProblemInstance:
         raise NotImplementedError()

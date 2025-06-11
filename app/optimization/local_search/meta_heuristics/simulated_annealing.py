@@ -9,7 +9,6 @@ class CoolingSchedule(StrEnum):
 
 
 class SimulatedAnnealing(LocalSearch):
-
     _method = "stochastic"
     _T: float
     _last_obj: float

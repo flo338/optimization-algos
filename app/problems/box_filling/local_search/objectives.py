@@ -6,7 +6,6 @@ POWER = 1.1
 
 
 class BoxFillingObjective(Objective):
-
     @staticmethod
     def get_best_objective(num_rect: int):
         return num_rect**1.1

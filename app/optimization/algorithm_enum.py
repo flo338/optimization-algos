@@ -6,6 +6,7 @@ class Algorithm(StrEnum):
     SIMULATED_ANNEALING = "Simulated Annealing"
     BACKTRACKING = "Backtracking"
 
+
 class Neighborhoods(StrEnum):
     GEOMETRIC = auto()
     RULE_BASED = auto()

@@ -11,7 +11,7 @@ class HillClimbing(LocalSearch):
     """
 
     _method = "exhaustive"
-    
+
     def __init__(self, instance, steps):
         super().__init__(instance, steps)
 
@@ -19,7 +19,7 @@ class HillClimbing(LocalSearch):
         argmax = np.argmax(obj_diffs).astype(int)
 
         if obj_diffs[argmax] <= 0:
-                return []
+            return []
 
         self._tries = 0
         return [argmax]

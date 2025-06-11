@@ -181,7 +181,9 @@ class BoxFilling(ProblemInstance):
 
         blocked_coordinates = get_blocked_fields(solution.solution)
 
-        hulls: set[Tuple[int, int, int]] = set().union(*[var.hull for var in solution.solution])  # type: ignore
+        hulls: set[Tuple[int, int, int]] = set().union(
+            *[var.hull for var in solution.solution]
+        )  # type: ignore
         hull_cords = hulls.difference(blocked_coordinates)
         for box, row, col in sorted(list(hull_cords)):
             if 0 <= row < self.L - var.height + 1:

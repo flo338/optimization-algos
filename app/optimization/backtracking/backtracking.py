@@ -36,7 +36,7 @@ class Backtracking:
 
     def get_current_info(self, **kwargs):
         return f"{self._curr_step} / {self._steps}\n\n"
-    
+
     def search(self, start_sol: ProblemSolution | None = None) -> ProblemSolution:
         s = (
             start_sol
@@ -52,7 +52,7 @@ class Backtracking:
             except ErrorNoImprovement:
                 return s
 
-        return s    
+        return s
 
     def step(self, curr_sol: ProblemSolution) -> ProblemSolution:
         """
@@ -72,7 +72,6 @@ class Backtracking:
             solution=curr_sol,
             pruned_vals=self._pruned_vals[hash(variable)],
         ):
-
             if not self._instance.is_feasible_value(
                 val=value, var=variable, solution=curr_sol
             ):
