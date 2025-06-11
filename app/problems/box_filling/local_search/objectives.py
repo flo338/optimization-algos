@@ -17,7 +17,7 @@ class BoxFillingObjective(Objective):
             - subtracting the number of boxes needed
             - Squaring the number of all rectangles in each box and adding up
               ∑_{b in boxes} num_rectangles(b)**2
-              x**c has a strictly monotonic increasing first derivative. The sum of these squares therefore gets bigger,
+              x**c with c>1 is strictly convex. The sum of these squares therefore gets bigger,
               if squares are more accumulated in one box vs. spread over multiple.
 
               eg. 2^2 + 3^2 < (2 + 3)^2
@@ -25,7 +25,6 @@ class BoxFillingObjective(Objective):
 
         Total objective function: obj(Solution) = - #Boxes + ∑_{b in Boxes} num_rectangles(b)**2
         """
-        alpha: float = 1
 
         num_boxes: list[int] = []
         num_rects: list[float] = []
@@ -40,4 +39,4 @@ class BoxFillingObjective(Objective):
             num_rects.append(sum(num**POWER for num in num_rect.values()))
 
         # objective = - number of boxes + score function described above
-        return [-alpha * num_boxes[ix] + num_rects[ix] for ix in range(len(solution))]
+        return [-1 * num_boxes[ix] + num_rects[ix] for ix in range(len(solution))]
