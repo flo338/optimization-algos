@@ -1,7 +1,7 @@
 """Implements the hill climbing meta heuristic."""
 
 import numpy as np
-from app.optimization.local_search.local_search import LocalSearch
+from optimization.local_search.local_search import LocalSearch
 
 
 class HillClimbing(LocalSearch):

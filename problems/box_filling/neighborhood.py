@@ -7,11 +7,10 @@ import random
 from typing import Literal, Tuple
 import numpy as np
 
-from app.optimization.local_search.neighborhood import Neighborhood
-from app.problems.box_filling.rectangle import Rectangle, RectangleFactory
-from app.problems.box_filling.solution import BoxFillingSolution
-from app.problems.box_filling.utils import (
-    approximate_all_moves,
+from optimization.local_search.neighborhood import Neighborhood
+from problems.box_filling.rectangle import Rectangle, RectangleFactory
+from problems.box_filling.solution import BoxFillingSolution
+from problems.box_filling.utils import (
     generate_all_moves,
     get_blocked_fields,
     place_rectangle,

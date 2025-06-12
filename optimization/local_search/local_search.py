@@ -5,13 +5,13 @@ from typing import Literal, Protocol, final
 
 import numpy as np
 
-from app.optimization.exceptions import (
+from optimization.exceptions import (
     ErrorDuringStep,
     ErrorNoImprovement,
     ErrorStepLimit,
 )
-from app.optimization.local_search.instance import ProblemInstance
-from app.optimization.solution import ProblemSolution
+from optimization.local_search.instance import ProblemInstance
+from optimization.solution import ProblemSolution
 
 
 class LocalSearch(Protocol):

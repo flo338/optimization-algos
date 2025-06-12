@@ -1,6 +1,6 @@
 from collections import defaultdict
-from app.optimization.local_search.objective import Objective
-from app.problems.box_filling.solution import BoxFillingSolution
+from optimization.local_search.objective import Objective
+from problems.box_filling.solution import BoxFillingSolution
 
 POWER = 1.1
 

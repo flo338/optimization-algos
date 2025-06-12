@@ -1,6 +1,6 @@
 import numpy as np
-from app.optimization.solution import ProblemSolution
-from app.problems.box_filling.rectangle import Rectangle, RectangleFactory
+from optimization.solution import ProblemSolution
+from problems.box_filling.rectangle import Rectangle, RectangleFactory
 
 
 class BoxFillingSolution(ProblemSolution):

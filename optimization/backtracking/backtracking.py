@@ -1,9 +1,9 @@
 from collections import defaultdict
 from copy import deepcopy
 from typing import Any
-from app.optimization.exceptions import ErrorDuringStep, ErrorNoImprovement, ErrorNoVars
-from app.optimization.local_search.instance import ProblemInstance
-from app.optimization.solution import ProblemSolution
+from optimization.exceptions import ErrorDuringStep, ErrorNoImprovement, ErrorNoVars
+from optimization.local_search.instance import ProblemInstance
+from optimization.solution import ProblemSolution
 
 
 class ErrorCantFindSolution(Exception): ...

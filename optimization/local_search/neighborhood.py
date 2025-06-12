@@ -3,7 +3,7 @@
 from abc import abstractmethod
 from typing import Literal, Protocol
 
-from app.optimization.solution import ProblemSolution
+from optimization.solution import ProblemSolution
 
 
 class Neighborhood(Protocol):

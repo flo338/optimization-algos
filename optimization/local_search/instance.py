@@ -3,9 +3,9 @@
 from abc import abstractmethod
 from typing import Any, Protocol
 
-from app.optimization.local_search.neighborhood import Neighborhood
-from app.optimization.local_search.objective import Objective
-from app.optimization.solution import ProblemSolution
+from optimization.local_search.neighborhood import Neighborhood
+from optimization.local_search.objective import Objective
+from optimization.solution import ProblemSolution
 
 
 class ErrorWhileGeneratingSolution(Exception): ...

@@ -1,7 +1,7 @@
 import unittest
 
-from app.problems.box_filling.rectangle import RectangleFactory, get_coordinates
-from app.problems.box_filling.solution import BoxFillingSolution
+from problems.box_filling.rectangle import RectangleFactory, get_coordinates
+from problems.box_filling.solution import BoxFillingSolution
 
 
 class TestBoxFilling(unittest.TestCase):

@@ -2,18 +2,18 @@ from enum import Enum
 from typing import Generator, Tuple
 
 import numpy as np
-from app.optimization.local_search.instance import (
+from optimization.local_search.instance import (
     ErrorWhileGeneratingSolution,
     ProblemInstance,
 )
-from app.optimization.solution import ProblemSolution
-from app.problems.box_filling.local_search.neighborhoods.geometric_neighborhood import (
+from optimization.solution import ProblemSolution
+from problems.box_filling.neighborhood import (
     GeometricNeighborhood,
 )
-from app.problems.box_filling.local_search.objectives import BoxFillingObjective
-from app.problems.box_filling.rectangle import Rectangle, RectangleFactory
-from app.problems.box_filling.solution import BoxFillingSolution
-from app.problems.box_filling.utils import get_blocked_fields, get_coordinates
+from problems.box_filling.objectives import BoxFillingObjective
+from problems.box_filling.rectangle import Rectangle, RectangleFactory, get_coordinates
+from problems.box_filling.solution import BoxFillingSolution
+from problems.box_filling.utils import get_blocked_fields
 
 
 class Rotation(Enum):

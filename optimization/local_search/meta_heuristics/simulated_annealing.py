@@ -1,6 +1,6 @@
 from enum import StrEnum
 import numpy as np
-from app.optimization.local_search.local_search import LocalSearch
+from optimization.local_search.local_search import LocalSearch
 
 
 class CoolingSchedule(StrEnum):
