@@ -1,3 +1,8 @@
+"""
+Given a set of tasks with fixed durations and a set of workers with limited capacity, the optimization goal is to 
+assign each task to a worker such that the overall workload is balanced and no worker exceeds his capacity.
+"""
+
 from optimization.local_search.meta_heuristics.simulated_annealing import SimulatedAnnealing
 from problems.scheduling.instance import TaskSchedulingInstance
 
