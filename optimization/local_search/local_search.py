@@ -113,8 +113,6 @@ class LocalSearch(Protocol):
             obj_diffs: np.ndarray = np.array(objs) - curr_obj
 
             best_neighbor = self._choose_neighbor(obj_diffs=obj_diffs)
-        # if not best_neighbor:
-        #     return curr_sol
 
         curr_sol = neighbors[best_neighbor[0]]
 

@@ -12,8 +12,8 @@ class HillClimbing(LocalSearch):
 
     _method = "exhaustive"
 
-    def __init__(self, instance, steps):
-        super().__init__(instance, steps)
+    def __init__(self, instance, steps, attempts: int = 100):
+        super().__init__(instance, steps, attempts)
 
     def _choose(self, obj_diffs: np.ndarray) -> list[int]:
         argmax = np.argmax(obj_diffs).astype(int)
