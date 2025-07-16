@@ -26,4 +26,7 @@ or search until convergance
 final_solution = search_algorithm.search()
 ```
 
-NOTE: The repository mainly serves for getting to know the algorithms better, hence the the implementations are not the most efficient.
+See a concrete example in optimization-algos/example.
+
+
+NOTE: The repository mainly serves for getting to know the algorithms better (educational), hence the the implementations are not the most efficient.
