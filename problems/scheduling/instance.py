@@ -20,7 +20,6 @@ class TaskSchedulingInstance:
         self.num_workers = num_workers
         self.max_worker_load = max_worker_load
 
-        # Create neighborhood and objective
         self.neighborhood = TaskReassignmentNeighborhood(
             num_workers=num_workers,
             task_durations=task_durations,

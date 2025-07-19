@@ -40,12 +40,9 @@ class TaskReassignmentNeighborhood:
         num_tasks = len(assignment)
         neighbors = []
 
-        # Iterate over all sets of up to `max_changes` task indices
         for k in range(1, self.max_changes + 1):
             for task_indices in combinations(range(num_tasks), k):
-                # For each such combination of tasks, try assigning them to all possible new workers
                 for new_workers in product(range(self.num_workers), repeat=k):
-                    # Skip if it's the same as current assignments
                     if all(assignment[i] == new_workers[j] for j, i in enumerate(task_indices)):
                         continue
 
@@ -55,7 +52,6 @@ class TaskReassignmentNeighborhood:
 
                     neighbor = ScheduleSolution(new_assignment)
 
-                    #if not self.filter_feasible or self._is_feasible(neighbor):
                     neighbors.append(neighbor)
 
         return neighbors
@@ -79,21 +75,17 @@ class TaskReassignmentNeighborhood:
         for _ in range(num_samples):
             new_assignment = assignment[:]
 
-            # Randomly choose how many tasks to change (1 to max_changes)
             k = random.randint(1, self.max_changes)
 
-            # Randomly select k distinct task indices to change
             tasks_to_change = random.sample(range(num_tasks), k)
 
             for task_idx in tasks_to_change:
                 current_worker = new_assignment[task_idx]
-                # Randomly select a different worker
                 possible_workers = [w for w in range(self.num_workers) if w != current_worker]
                 new_worker = random.choice(possible_workers)
                 new_assignment[task_idx] = new_worker
 
             neighbor = ScheduleSolution(new_assignment)
-          #  if not self.filter_feasible or self._is_feasible(neighbor):
             neighbors.append(neighbor)
 
         return neighbors
