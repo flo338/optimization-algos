@@ -7,7 +7,6 @@ Including a general implementation of _backtracking_ aswell as a base class for 
 
 In order to use the the optimization algorithms, you need to implement the following protocols: ProblemSolution, Objective, Neighborhood (for the local search) and a ProblemInstance which orchestrates the individual parts.
 This design allows for playing around with different neighborhoods and objective functions easily.
-An example implementation is provided for the box filling problem, where the objective lays in using the smallest amount of fixed size boxes, to store a set of rectangles.
 All optimization algorithms can be run until some termination criterion or step by step.
 
 **Example usage**:
@@ -27,6 +26,3 @@ final_solution = search_algorithm.search()
 ```
 
 See a concrete example in optimization-algos/example.
-
-
-NOTE: The repository mainly serves for getting to know the algorithms better (educational), hence the the implementations are not the most efficient.
