@@ -1,7 +1,4 @@
-"""Defines the local search heuristic"""
-
-from abc import abstractmethod
-from typing import Literal, Protocol, final
+from abc import ABC, abstractmethod
 
 import numpy as np
 
@@ -10,26 +7,25 @@ from optimization.exceptions import (
     ErrorNoImprovement,
     ErrorStepLimit,
 )
-from optimization.local_search.instance import ProblemInstance
+from optimization.local_search.instance_local_search import ProblemInstanceLocalSearch
 from optimization.solution import ProblemSolution
 
 
-class LocalSearch(Protocol):
+class LocalSearch(ABC):
     """
     A protocol for local search algorithms. The local search class takes a problem instance,
     and an amount of steps.
     """
 
-    _instance: ProblemInstance
+    _instance: ProblemInstanceLocalSearch
     _steps: int
     _curr_step: int = 0
     _tries: int = 0
     _attempts: int
-    _method: Literal["exhaustive", "stochastic"]
 
     def __init__(
         self,
-        instance: ProblemInstance,
+        instance: ProblemInstanceLocalSearch,
         steps: int,
         attempts: int = 100,
     ) -> None:
@@ -42,7 +38,6 @@ class LocalSearch(Protocol):
         """Logic how a neighbor is chosen."""
         raise NotImplementedError
 
-    @final
     def _choose_neighbor(self, obj_diffs: np.ndarray) -> list[int]:
         """Method to choose a neighbor"""
 
@@ -50,7 +45,6 @@ class LocalSearch(Protocol):
 
         return self._acceptance_test(solutions=cand_neighbors)
 
-    @final
     def _acceptance_test(self, solutions: list[int]) -> list[int]:
         """Checks if a neighbor was chosen otherwise try counter is incremented."""
 
@@ -97,9 +91,7 @@ class LocalSearch(Protocol):
         best_neighbor = None
 
         while not best_neighbor:
-            neighbors = self._instance.neighborhood.get_neighbors(
-                solution=curr_sol, method=self._method
-            )
+            neighbors = self._instance.neighborhood.get_neighbors(solution=curr_sol)
 
             if len(neighbors) == 0:
                 self._tries += 1

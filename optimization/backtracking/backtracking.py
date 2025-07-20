@@ -1,8 +1,8 @@
 from collections import defaultdict
 from copy import deepcopy
 from typing import Any
+from optimization.backtracking.instance_backtracking import ProblemInstanceBacktracking
 from optimization.exceptions import ErrorDuringStep, ErrorNoImprovement, ErrorNoVars
-from optimization.local_search.instance import ProblemInstance
 from optimization.solution import ProblemSolution
 
 
@@ -14,13 +14,15 @@ Value = Any
 
 
 class Backtracking:
-    _instance: ProblemInstance
+    _instance: ProblemInstanceBacktracking
     _steps: int
     _curr_step: int = 0
 
     _vars: set[Variable]
 
-    def __init__(self, instance: ProblemInstance, vars: set, steps: int = 500):
+    def __init__(
+        self, instance: ProblemInstanceBacktracking, vars: set, steps: int = 500
+    ):
         self._instance = instance
         self._steps = steps
         self._vars = vars

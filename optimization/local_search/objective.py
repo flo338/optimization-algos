@@ -1,13 +1,9 @@
-"""Defines a protocol for an objective"""
-
-from abc import abstractmethod
-from typing import Protocol
+from abc import ABC, abstractmethod
 
 from optimization.solution import ProblemSolution
 
 
-class Objective(Protocol):
-    @staticmethod
+class Objective(ABC):
     @abstractmethod
-    def obj(solution: list[ProblemSolution]) -> list[float]:
+    def obj(self, solution: list[ProblemSolution]) -> list[float]:
         raise NotImplementedError
