@@ -1,7 +1,8 @@
-"""Defines a protocol for solutions"""
+from abc import ABC
+from typing import Any
 
-import typing
 
+class ProblemSolution(ABC):
+    """Base class for problem solutions"""
 
-class ProblemSolution(typing.Protocol):
-    solution: typing.Any
+    solution: Any

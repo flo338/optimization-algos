@@ -1,4 +1,7 @@
-class ScheduleSolution:
+from optimization.solution import ProblemSolution
+
+
+class ScheduleSolution(ProblemSolution):
     def __init__(self, task_assignments: list[int]):
         self.solution = task_assignments
 

@@ -1,7 +1,8 @@
+from optimization.local_search.objective import Objective
 from optimization.solution import ProblemSolution
 
 
-class LoadBalancingObjective:
+class LoadBalancingObjective(Objective):
     def __init__(self, task_durations: list[int], max_worker_load: int):
         self.task_durations = task_durations
         self.max_worker_load = max_worker_load
@@ -17,9 +18,9 @@ class LoadBalancingObjective:
         mean = sum(loads) / len(loads)
         return sum((x - mean) ** 2 for x in loads) / len(loads)
 
-    def obj(self, solutions: list[ProblemSolution]) -> list[float]:
+    def obj(self, solution: list[ProblemSolution]) -> list[float]:
         results = []
-        for sol in solutions:
+        for sol in solution:
             assignment = sol.solution
             num_workers = max(assignment) + 1
             loads = self._worker_loads(assignment, num_workers)
@@ -28,5 +29,5 @@ class LoadBalancingObjective:
             )
             variance_score = self._variance(loads)
             total_score = variance_score + 10 * overload_penalty  # weighted penalty
-            results.append(1e6-total_score)
+            results.append(1e6 - total_score)
         return results
