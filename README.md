@@ -4,7 +4,7 @@ To setup your environment run `source setup.sh` from the base directory.
 The repository offers an educational framework for a few optimization algorithms.
 Including a general implementation of _backtracking_ aswell as a base class for _local search_ algorithms. The repository includes Hill Climbing, aswell as Simulated Annealing as meta heuristics of the _local search_ algorithm.
 
-In order to use the the optimization algorithms, you need to implement the following protocols: ProblemSolution, Objective, Neighborhood (for the local search) and a ProblemInstance which orchestrates the individual parts.
+In order to use the the optimization algorithms, you need concrete implementations for the following abstract base classes: ProblemSolution, Objective, Neighborhood (for the local search) and a ProblemInstance which orchestrates the individual parts.
 This design allows for playing around with different neighborhoods and objective functions easily.
 All optimization algorithms can be run until some termination criterion or step by step.
 
