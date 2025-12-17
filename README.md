@@ -1,4 +1,4 @@
-To setup your environment run `source setup.sh` from the base directory.
+To setup your environment run `source setup.sh` from the base directory
 
 # Contents
 The repository offers an educational framework for a few optimization algorithms.
